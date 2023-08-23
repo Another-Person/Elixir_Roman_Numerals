@@ -1,37 +1,37 @@
 defmodule RomanNumerals do
-  def IntToRoman(num) do
-    IntToRomanHelper(num, "")
+  def intToRoman(num) do
+    intToRomanHelper(num, "")
   end
 
-  defp IntToRomanHelper(0, stringSoFar) do
+  defp intToRomanHelper(0, stringSoFar) do
     stringSoFar
   end
 
-  defp IntToRomanHelper(num, stringSoFar) when num > 5 do
-    IntToRomanHelper(num - 5, "#{stringSoFar}V")
+  defp intToRomanHelper(num, stringSoFar) when num >= 5 do
+    intToRomanHelper(num - 5, "#{stringSoFar}V")
   end
 
-  defp IntToRomanHelper(num, stringSoFar) when num == 4 do
-    IntToRomanHelper(num - 4, "#{stringSoFar}IV")
+  defp intToRomanHelper(num, stringSoFar) when num == 4 do
+    intToRomanHelper(num - 4, "#{stringSoFar}IV")
   end
 
-  defp IntToRomanHelper(num, stringSoFar) when num > 1 do
-    IntToRomanHelper(num - 1, "#{stringSoFar}I")
+  defp intToRomanHelper(num, stringSoFar) when num >= 1 do
+    intToRomanHelper(num - 1, "#{stringSoFar}I")
   end
 
 end
 
-one = RomanNumerals.IntToRoman(1)
+one = RomanNumerals.intToRoman(1)
 IO.puts("Expected I got #{one}")
 
-three = RomanNumerals.IntToRoman(3)
+three = RomanNumerals.intToRoman(3)
 IO.puts("Expected III got #{three}")
 
-four = RomanNumerals.IntToRoman(4)
+four = RomanNumerals.intToRoman(4)
 IO.puts("Expected IV got #{four}")
 
-five = RomanNumerals.IntToRoman(5)
+five = RomanNumerals.intToRoman(5)
 IO.puts("Expected V got #{five}")
 
-eight = RomanNumerals.IntToRoman(8)
+eight = RomanNumerals.intToRoman(8)
 IO.puts("Expected VIII got #{eight}")
