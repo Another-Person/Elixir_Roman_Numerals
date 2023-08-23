@@ -7,6 +7,22 @@ defmodule RomanNumerals do
     stringSoFar
   end
 
+  defp intToRomanHelper(num, stringSoFar) when num >= 100 do
+    intToRomanHelper(num - 100, "#{stringSoFar}C")
+  end
+
+  defp intToRomanHelper(num, stringSoFar) when num >= 90 do
+    intToRomanHelper(num - 90, "#{stringSoFar}XC")
+  end
+
+  defp intToRomanHelper(num, stringSoFar) when num >= 50 do
+    intToRomanHelper(num - 50, "#{stringSoFar}L")
+  end
+
+  defp intToRomanHelper(num, stringSoFar) when num >= 40 do
+    intToRomanHelper(num - 40, "#{stringSoFar}XL")
+  end
+
   defp intToRomanHelper(num, stringSoFar) when num >= 10 do
     intToRomanHelper(num - 10, "#{stringSoFar}X")
   end
@@ -52,3 +68,18 @@ IO.puts("Expected XXVII got #{twenty_seven}")
 
 thirty_nine = RomanNumerals.intToRoman(39)
 IO.puts("Expected XXXIX got #{thirty_nine}")
+
+forty = RomanNumerals.intToRoman(40)
+IO.puts("Expected XL got #{forty}")
+
+fifty = RomanNumerals.intToRoman(50)
+IO.puts("Expected L got #{fifty}")
+
+ninety = RomanNumerals.intToRoman(90)
+IO.puts("Expected XC got #{ninety}")
+
+hundred = RomanNumerals.intToRoman(100)
+IO.puts("Expected C got #{hundred}")
+
+twofoursix = RomanNumerals.intToRoman(246)
+IO.puts("Expected CCXLVI got #{twofoursix}")
